@@ -1,5 +1,6 @@
 -- Write your PostgreSQL query statement below
-SELECT p.product_id,coalesce(ROUND(SUM(p.price * u.units) / SUM(u.units)::decimal,2),0) AS average_price
+SELECT
+    p.product_id,COALESCE(ROUND(SUM(p.price * u.units) / SUM(u.units)::DECIMAL,2),0) AS average_price
 FROM
     Prices AS p
 LEFT JOIN
